@@ -62,7 +62,41 @@ $(function(){
         
         
     });
+    // click on new
+    $("#new").click(function(){
+        //reload page
+        location.reload();
+    });
+    //click on pause button
+     $("#pause").click(function(){
+       //stop reading and switch to none reading mode
+         clearInterval(action);
+         reading = false;
     
+         //hide pause and show resume
+         
+         $("#pause").hide();
+         $("#resume").show();
+         
+     });
+         
+         //click on resume button
+     $("#resume").click(function(){
+       //start reading
+         action = setInterval(read, frequency);
+            // reading mode
+         reading = true;
+    
+         //hide resume and show pause
+         
+         $("#resume").hide();
+         $("#pause").show();
+         
+     }); 
+         
+         
+         
+         
    //functions
 
 
