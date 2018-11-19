@@ -5,7 +5,7 @@ $(function(){
     var reading = false;
     var counter;
     var action;
-    var frequency = 300;
+    var frequency = 200;
     
     //on page load  hide elements we don't need, leave only txt area and start button
     
@@ -93,7 +93,84 @@ $(function(){
          $("#pause").show();
          
      }); 
-         
+    
+    //change fontSize
+    $("#fontsizeslider").on("slidestop",function(event,ui){
+        //refresh the slider
+        $("#fontsizeslider").slider("refresh");
+        
+        //get the  value of slider
+        var slidervalue = parseInt($("#fontsizeslider").val());
+        
+        $("#result").css("fontSize", slidervalue);
+        $("#fontsize").text(slidervalue);
+        
+        
+        
+    });
+    
+    
+    //change speed
+    $("#speedslider").on("slidestop",function(event,ui){
+        //refresh the slider
+        $("#speedslider").slider("refresh");
+        
+        //get the  value of slider
+        var slidervalue = parseInt($("#speedslider").val());
+        
+     $("#speed").text(slidervalue);
+        //stop reading
+        clearInterval(action);
+        
+        //change frequency
+        frequency = 60000/slidervalue;
+        
+        //resume reading is we are reading
+        if(reading){
+            action = setInterval(read, frequency);
+        }
+        
+        
+    });
+    
+    //progress slider
+    $("#progressslider").on("slidestop",function(event,ui){
+        //refresh the slider
+        $("#progressslider").slider("refresh");
+        
+        //get the  value of slider
+        var slidervalue = parseInt($("#progressslider").val());
+        
+    
+        //stop reading
+        clearInterval(action);
+        
+        //change counter
+       counter = slidervalue;
+      
+        //chnage word
+        $("#result").text(myArray[counter]);
+        
+        
+        //change value of progress
+        $("#percentage").text(Math.floor(counter/(inputLength-1)*100));
+        
+        //resume reading is we are reading
+        if(reading){
+            action = setInterval(read, frequency);
+        }
+        
+        
+    });
+    
+    
+    
+    
+    
+    
+    
+    
+    
          
          
          
