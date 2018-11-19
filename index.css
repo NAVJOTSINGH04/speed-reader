@@ -1,0 +1,33 @@
+/*adding background img*/
+#page1{
+    background: url(https://images.unsplash.com/photo-1542468680-13893350a38f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e9452a4adb164aa49c2f4b2605940ada&auto=format&fit=crop&w=1562&q=80);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: white;
+    text-align: center;
+    font-family: serif;
+}
+/*error message*/
+#error{
+    background-color: #D87777;
+    width: 50%;
+    margin: 20px auto;
+    font-size: 20px;
+}
+/*read word*/
+#result{
+    
+    font-size: 50px;
+    background-color: rgba(255,255,255,0.2);
+    padding: 5% 0;
+    
+}
+
+/* Hide the number input */
+.full-width-slider input {
+    display: none !important;
+}
+.full-width-slider .ui-slider-track {
+ margin-left: 15px;
+}
